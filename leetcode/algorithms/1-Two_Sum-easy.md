@@ -17,10 +17,13 @@ https://leetcode-cn.com/problems/two-sum/
 
 ## 题解
 
-### 我的方法：
+### 解决思路：
 
 嵌套循环遍历，查找两个相加等于target的元素。
 
+### 代码
+
+java代码:
 ~~~ java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -36,7 +39,7 @@ class Solution {
 }
 ~~~
 
-#### 复杂度分析：
+### 复杂度分析：
 
 时间复杂度：$O(n^2)$
 
