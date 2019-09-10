@@ -19,7 +19,7 @@ https://leetcode-cn.com/problems/two-sum/
 
 ### 我的方法：
 
-暴力遍历
+嵌套循环遍历，查找两个相加等于target的元素。
 
 ~~~ java
 class Solution {
