@@ -43,7 +43,7 @@ class Solution {
         for(int i = 0; i < nums.length - 2; ){
             // 选择了一个数的情况下，寻找符合条件两数之和。
             int l = i + 1, r = nums.length - 1;
-            while(l < r && r < nums.length){
+            while(l < r){
                 // 寻找符合条件的两数
                 int sum = nums[i] + nums[l] + nums[r];
                 if(sum == 0){
