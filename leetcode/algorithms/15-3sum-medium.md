@@ -40,7 +40,7 @@ class Solution {
         
         Arrays.sort(nums);
         
-        for(int i = 0; i < nums.length - 2; ){
+        for(int i = 0; i < nums.length - 2; i++;){
             // 选择了一个数的情况下，寻找符合条件两数之和。
             int l = i + 1, r = nums.length - 1;
             while(l < r){
@@ -64,7 +64,6 @@ class Solution {
             
             // 更改i，注意避免重复组合
             while(i + 1 < nums.length - 2 && nums[i] == nums[i+1]){i++;}
-            i++;
         }
         return res;
     }
