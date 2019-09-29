@@ -36,14 +36,25 @@ java代码:
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
-        if(nums.length < 4) return res;
+        int len = nums.length;
+        
+        if(len < 4) return res;
         
         Arrays.sort(nums);
         
         //四个指针i, j, pLeft, pRight
-        for(int i = 0; i < nums.length - 3; i++){
-            for(int j = i + 1; j < nums.length - 2; j++){
-                int pLeft = j + 1, pRight = nums.length - 1;
+        for(int i = 0; i < len - 3; i++){
+            for(int j = i + 1; j < len - 2; j++){
+                int pLeft = j + 1, pRight = len - 1;
+                
+                // 这两个if判断可以大量减少不符合条件的i， j值，执行用时从40ms减少到10ms。
+                if(nums[i] + nums[i+1] + nums[i+2] + nums[i+3] > target){
+                    break;
+                }
+                if(nums[i] + nums[len-1] + nums[len-2] + nums[len-3] < target){
+                    continue;
+                }
+                
                 while(pLeft < pRight){
                     int sum = nums[i] + nums[j] + nums[pLeft] + nums[pRight];
                     if(sum == target){
@@ -61,10 +72,10 @@ class Solution {
                 }
                 
                 // 第二个指针j去重
-                while(j < nums.length - 2 && nums[j+1] == nums[j]){j++;}
+                while(j < len - 2 && nums[j+1] == nums[j]){j++;}
             }
             // 第一个指针i去重
-            while(i < nums.length - 3 && nums[i+1] == nums[i]){i++;}
+            while(i < len - 3 && nums[i+1] == nums[i]){i++;}
         }
         return res;
     }
