@@ -6,7 +6,7 @@ algorithm execises
 ## bitsort
 
 ~~~
-实现位图搜索
+实现位图排序
 ~~~
 
 ## leetcode
