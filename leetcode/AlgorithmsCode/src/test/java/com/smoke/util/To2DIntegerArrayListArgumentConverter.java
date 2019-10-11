@@ -17,7 +17,7 @@ import org.junit.jupiter.params.converter.SimpleArgumentConverter;
  * @author Smoke
  *
  */
-public class To2DArrayListArgumentConverter extends SimpleArgumentConverter {
+public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConverter {
 
 	
 	/**
