@@ -5,6 +5,7 @@ package com.smoke.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.params.converter.ArgumentConversionException;
@@ -18,21 +19,30 @@ import org.junit.jupiter.params.converter.SimpleArgumentConverter;
  *
  */
 public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConverter {
-
 	
 	/**
 	 * convert int[][] string to List<List<Integer>>
 	 */
 	@Override
 	public List<List<Integer>> convert(Object input, Class<?> targetClass) throws ArgumentConversionException {
-//		if (!String.class.equals(targetClass)){
-//			throw new ArgumentConversionException("Cannot convert to " + targetClass.getName() + ": " + input);
-//		}
+		input = ((String) input).replace(" ", "");
+		if (!checkSource((String)input)){
+			throw new ArgumentConversionException("Input: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
+		}
 		
-		return Arrays.stream(((String)input).split("],\\["))
-			      .map(row -> row.replace("[[", "").replace("]]", ""))
-			      .map(row -> Arrays.stream(row.split(","))
-			        .map(Integer::parseInt).collect(Collectors.toList())
-			      ).collect(Collectors.toList());
+		return Arrays.stream(((String)input).replace("[[", "").replace("]]", "").split("],\\["))
+				.map(row -> Arrays.stream(row.split(","))
+					.map(Integer::parseInt).collect(Collectors.toList())
+					).collect(Collectors.toList());
+	}
+
+	/**
+	 *	检查输入的字符串是否能够转化为二维数组
+	 * 
+	 * @param source
+	 * @return
+	 */
+	private boolean checkSource(String source){
+		return source.matches("^\\[(\\[([1-9]\\d*,)*[1-9]\\d*\\],)*\\[([1-9]\\d*,)*[1-9]\\d*\\]\\]$") ;
 	}
 }

@@ -333,3 +333,5 @@ ASALocalRun/
 .metadata/  
 target/
 
+**/src/*/java/com/smoke/main/
+

@@ -19,14 +19,17 @@ import org.junit.jupiter.params.converter.SimpleArgumentConverter;
  */
 public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 
+	/**
+	 * convert int[] string to int[]
+	 */
 	@Override
 	public Object convert(Object input, Class<?> targetClass) throws ArgumentConversionException {
-//		if (!String.class.getName().equals(targetClass)){
-//			throw new ArgumentConversionException("Cannot convert to " + targetClass.getName() + ": " + input);
-//		}
+		input = ((String) input).replace(" ", "");
+		if (!checkSource((String)input)){
+			throw new ArgumentConversionException("Input: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
+		}
 		
-		List<Integer> list = Arrays.stream(((String)input).split(","))
-				.map(row -> row.replace("[", "").replace("]", ""))
+		List<Integer> list = Arrays.stream(((String)input).replace("[", "").replace("]", "").split(","))
 				.map(Integer::parseInt).collect(Collectors.toList());
 		
 		int[] arr = new int[list.size()];
@@ -36,5 +39,15 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 		}
 			
 		return arr;
+	}
+	
+	/**
+	 *	检查输入的字符串是否能够转化为数组
+	 * 
+	 * @param source
+	 * @return
+	 */
+	private boolean checkSource(String source){
+		return source.matches("^\\[([1-9]\\d*,)*[1-9]\\d*\\]$") ;
 	}
 }

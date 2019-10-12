@@ -59,19 +59,6 @@ public class Solution39 {
     	}
     }
     
-    /*
-     * main函数调试
-     */
-//    public static void main(String[] args) {
-//		Solution39 solution39 = new Solution39();
-//		
-//
-//		int[] candidates = {2,3,6,7};
-//		int target = 7;
-//		
-//		solution39.combinationSum(candidates, target);
-//	}
-    
 	/*
 	 *	有重复代码，优化后如上
 	 */
