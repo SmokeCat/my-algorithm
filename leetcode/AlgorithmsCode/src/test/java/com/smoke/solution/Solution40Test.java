@@ -1,13 +1,13 @@
+/**
+ * 
+ */
 package com.smoke.solution;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -15,28 +15,33 @@ import org.junit.jupiter.params.provider.CsvSource;
 import com.smoke.util.To2DIntegerArrayListArgumentConverter;
 import com.smoke.util.ToIntArrayArgumentConverter;
 
-class Solution39Test {
-	private static Solution39 s39;
+/**
+ * @author Smoke
+ *
+ */
+class Solution40Test {
+	private static Solution40 s40;
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception { 
-		s39 = new Solution39();
+	static void setUpBeforeClass() throws Exception {
+		s40 = new Solution40();
 	}
 
 	@ParameterizedTest
 	@CsvSource({
-		"'[2, 3, 6, 7]', 7, '[[7],[2, 2, 3]]'",
-		"'[2, 3, 5]', 8, '[[2, 2, 2, 2],[2, 3, 3],[3, 5]]'",
-//		"'[]', 1, '[]'"
+		"'[10,1,2,7,6,1,5]', 8, '[[1, 7],[1, 2, 5],[2, 6],[1, 1, 6]]'",
+		"'[3,1,3,5,1,1]', 8, '[[1,1,1,5],[1,1,3,3],[3,5]]'"
 	})
-//	@Test
 	void test(
-			@ConvertWith(ToIntArrayArgumentConverter.class) int[]candidates,
+			@ConvertWith(ToIntArrayArgumentConverter.class) int[] candidates,
 			int target,
 			@ConvertWith(To2DIntegerArrayListArgumentConverter.class) List<List<Integer>> res
 			) {
-		List<List<Integer>> currRes = s39.combinationSum(candidates, target);
-		assertTrue(currRes.containsAll(res) && res.containsAll(currRes), "solution39 failed");
+		List<List<Integer>> currRes = s40.combinationSum(candidates, target);
+		assertTrue(currRes.containsAll(res) && res.containsAll(currRes));
 	}
 
 }

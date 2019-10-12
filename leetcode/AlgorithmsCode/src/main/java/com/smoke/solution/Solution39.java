@@ -1,5 +1,6 @@
 /**
- * 
+ * #39
+ * https://leetcode-cn.com/problems/combination-sum/
  */
 package com.smoke.solution;
 
@@ -20,8 +21,6 @@ public class Solution39 {
 		Arrays.sort(candidates);
 		
 		combinationSumRecursive(res, target, candidates, 0, null);
-    	
-//		System.out.println(res);
 		
     	return res;
     }
@@ -58,19 +57,6 @@ public class Solution39 {
 			combinationSumRecursive(res, newTarget, candidates, i, newCombination);
     	}
     }
-    
-    /*
-     * main函数调试
-     */
-//    public static void main(String[] args) {
-//		Solution39 solution39 = new Solution39();
-//		
-//
-//		int[] candidates = {2,3,6,7};
-//		int target = 7;
-//		
-//		solution39.combinationSum(candidates, target);
-//	}
     
 	/*
 	 *	有重复代码，优化后如上

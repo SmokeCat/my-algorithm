@@ -7,7 +7,7 @@ https://leetcode-cn.com/problems/two-sum/
 
 示例:
 ```
-实例代码
+示例代码
 ```
 
 ## 题解
