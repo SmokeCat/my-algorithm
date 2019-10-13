@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.smoke.util;
+package com.smoke.util.converter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.params.converter.ArgumentConversionException;
@@ -28,6 +28,8 @@ public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConvert
 		input = ((String) input).replace(" ", "");
 		if (!checkSource((String)input)){
 			throw new ArgumentConversionException("result: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
+		}else if(isEmptyArray((String)input)){
+			return new ArrayList<>();
 		}
 		
 		return Arrays.stream(((String)input).replace("[[", "").replace("]]", "").split("],\\["))
@@ -44,5 +46,15 @@ public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConvert
 	 */
 	private boolean checkSource(String source){
 		return source.matches("^\\[(\\[([1-9]\\d*,?)*\\],?)*\\]$") ;
+	}	
+	
+	/**
+	 *	检查输入的字符串是否是一个空数组
+	 * 
+	 * @param source
+	 * @return
+	 */
+	private boolean isEmptyArray(String source){
+		return source.matches("^\\[\\]$");
 	}
 }

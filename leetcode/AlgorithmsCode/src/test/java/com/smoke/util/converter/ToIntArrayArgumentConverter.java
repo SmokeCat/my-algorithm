@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.smoke.util;
+package com.smoke.util.converter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,6 +27,8 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 		input = ((String) input).replace(" ", "");
 		if (!checkSource((String)input)){
 			throw new ArgumentConversionException("candidates: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
+		}else if(isEmptyArray((String)input)){
+			return new int[0];
 		}
 		
 		List<Integer> list = Arrays.stream(((String)input).replace("[", "").replace("]", "").split(","))
@@ -49,5 +51,15 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 	 */
 	private boolean checkSource(String source){
 		return source.matches("^\\[([1-9]\\d*,?)*\\]$") ;
+	}
+	
+	/**
+	 *	检查输入的字符串是否是一个空数组
+	 * 
+	 * @param source
+	 * @return
+	 */
+	private boolean isEmptyArray(String source){
+		return source.matches("^\\[\\]$");
 	}
 }
