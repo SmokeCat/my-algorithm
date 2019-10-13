@@ -26,9 +26,10 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 	public Object convert(Object input, Class<?> targetClass) throws ArgumentConversionException {
 		input = ((String) input).replace(" ", "");
 		if (!checkSource((String)input)){
-			throw new ArgumentConversionException("candidates: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
-		}else if(isEmptyArray((String)input)){
+			if(isEmptyArray((String)input)){
 			return new int[0];
+			}
+			throw new ArgumentConversionException("candidates: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
 		}
 		
 		List<Integer> list = Arrays.stream(((String)input).replace("[", "").replace("]", "").split(","))
@@ -50,7 +51,7 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 	 * @return
 	 */
 	private boolean checkSource(String source){
-		return source.matches("^\\[([1-9]\\d*,?)*\\]$") ;
+		return source.matches("^\\[([1-9]\\d*,?)+\\]$") ;
 	}
 	
 	/**
