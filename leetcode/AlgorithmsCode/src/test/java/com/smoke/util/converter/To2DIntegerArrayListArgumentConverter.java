@@ -27,9 +27,10 @@ public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConvert
 	public List<List<Integer>> convert(Object input, Class<?> targetClass) throws ArgumentConversionException {
 		input = ((String) input).replace(" ", "");
 		if (!checkSource((String)input)){
+			if(isEmptyArray((String)input)){
+				return new ArrayList<>();
+			}
 			throw new ArgumentConversionException("result: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
-		}else if(isEmptyArray((String)input)){
-			return new ArrayList<>();
 		}
 		
 		return Arrays.stream(((String)input).replace("[[", "").replace("]]", "").split("],\\["))
@@ -45,7 +46,7 @@ public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConvert
 	 * @return
 	 */
 	private boolean checkSource(String source){
-		return source.matches("^\\[(\\[([1-9]\\d*,?)*\\],?)*\\]$") ;
+		return source.matches("^\\[(\\[([1-9]\\d*,?)*\\],?)+\\]$") ;
 	}	
 	
 	/**

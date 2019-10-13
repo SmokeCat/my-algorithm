@@ -3,9 +3,8 @@
  */
 package com.smoke.util.converter;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import java.util.stream.Stream;
 
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
@@ -27,21 +26,14 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 		input = ((String) input).replace(" ", "");
 		if (!checkSource((String)input)){
 			if(isEmptyArray((String)input)){
-			return new int[0];
+				return new int[0];
 			}
-			throw new ArgumentConversionException("candidates: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
-		}
-		
-		List<Integer> list = Arrays.stream(((String)input).replace("[", "").replace("]", "").split(","))
-				.map(Integer::parseInt).collect(Collectors.toList());
-		
-		int[] arr = new int[list.size()];
-		
-		for(int i = 0; i < list.size(); i++){
-			arr[i] = list.get(i);
+			throw new ArgumentConversionException("candidates: \"" + input + "\" cannot convert to " + targetClass.getName() + ": ");
 		}
 			
-		return arr;
+		return Stream.of(((String)input).replace("[", "").replace("]", "").split(","))
+				.mapToInt(Integer::parseInt)
+				.toArray();
 	}
 	
 	/**
