@@ -12,8 +12,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import com.smoke.util.To2DIntegerArrayListArgumentConverter;
-import com.smoke.util.ToIntArrayArgumentConverter;
+import com.smoke.util.converter.To2DIntegerArrayListArgumentConverter;
+import com.smoke.util.converter.ToIntArrayArgumentConverter;
 
 /**
  * @author Smoke
@@ -33,7 +33,9 @@ class Solution40Test {
 	@ParameterizedTest
 	@CsvSource({
 		"'[10,1,2,7,6,1,5]', 8, '[[1, 7],[1, 2, 5],[2, 6],[1, 1, 6]]'",
-		"'[3,1,3,5,1,1]', 8, '[[1,1,1,5],[1,1,3,3],[3,5]]'"
+		"'[3,1,3,5,1,1]', 8, '[[1,1,1,5],[1,1,3,3],[3,5]]'",
+		"'[1]', 0, '[]'",
+		"'[ ]', 1, '[]'"
 	})
 	void test(
 			@ConvertWith(ToIntArrayArgumentConverter.class) int[] candidates,
