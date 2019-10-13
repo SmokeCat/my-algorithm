@@ -27,7 +27,7 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 		input = ((String) input).replace(" ", "");
 		if (!checkSource((String)input)){
 			if(isEmptyArray((String)input)){
-			return new int[0];
+				return new int[0];
 			}
 			throw new ArgumentConversionException("candidates: \"" + input + "\"" + " cannot convert to " + targetClass.getName() + ": ");
 		}
