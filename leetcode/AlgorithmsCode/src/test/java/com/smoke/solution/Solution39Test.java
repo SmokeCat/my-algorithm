@@ -34,7 +34,7 @@ class Solution39Test {
 			@ConvertWith(To2DIntegerArrayListArgumentConverter.class) List<List<Integer>> res
 			) {
 		List<List<Integer>> currRes = s39.combinationSum(candidates, target);
-		assertTrue(currRes.containsAll(res) && res.containsAll(currRes), "solution39 failed");
+		assertTrue(currRes.size() == res.size() && currRes.containsAll(res) && res.containsAll(currRes), "solution39 failed");
 	}
 
 }

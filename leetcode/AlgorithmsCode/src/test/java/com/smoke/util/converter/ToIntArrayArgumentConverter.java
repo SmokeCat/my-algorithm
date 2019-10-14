@@ -43,7 +43,7 @@ public class ToIntArrayArgumentConverter extends SimpleArgumentConverter {
 	 * @return
 	 */
 	private boolean checkSource(String source){
-		return source.matches("^\\[([1-9]\\d*,?)+\\]$") ;
+		return source.matches("^\\[(([1-9]\\d*|0),?)+\\]$") ;
 	}
 	
 	/**
