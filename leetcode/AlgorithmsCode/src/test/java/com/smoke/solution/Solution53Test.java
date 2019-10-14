@@ -6,7 +6,6 @@ package com.smoke.solution;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -37,7 +36,7 @@ class Solution53Test {
 			@ConvertWith(ToIntArrayArgumentConverter.class) int[] nums,
 			int expect
 			) {
-		assertEquals(expect, s53.maxSubArray(nums));
+		assertEquals(expect, s53.maxSubArray(nums), "solution53 failed");
 	}
 
 }
