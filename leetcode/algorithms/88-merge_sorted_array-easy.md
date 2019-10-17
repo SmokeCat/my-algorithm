@@ -23,18 +23,28 @@ nums2 = [2,5,6],       n = 3
 
 ### 解决思路：
 
-解决思路
+避免搬移nums1的数据，可以从nums1的末尾开始赋值。从大的开始比较。
 
 ### 代码
 
 java代码:
 ~~~ java
-Java代码
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        for(int i = m - 1, j = n - 1, ptr = nums1.length - 1; ptr >= 0;){
+            if(j < 0 || i >= 0 && nums1[i] >= nums2[j]){
+                nums1[ptr--] = nums1[i--];
+            }else{
+                nums1[ptr--] = nums2[j--];
+            }
+        }
+    }
+}
 ~~~
 
 ### 复杂度分析：
 
-时间复杂度：$O(n^2)$
+时间复杂度：$O(n)$
 
 空间复杂度：$O(1)$
 
