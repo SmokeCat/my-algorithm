@@ -46,7 +46,7 @@ public class To2DIntegerArrayListArgumentConverter extends SimpleArgumentConvert
 	 * @return
 	 */
 	private boolean checkSource(String source){
-		return source.matches("^\\[(\\[(([1-9]\\d*|0),?)*\\],?)+\\]$") ;
+		return source.matches("^\\[(\\[((-?[1-9]\\d*|0),?)*\\],?)+\\]$") ;
 	}	
 	
 	/**

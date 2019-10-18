@@ -29,14 +29,14 @@ class Solution53Test {
 
 	@ParameterizedTest
 	@CsvSource({
-		"'[-2,1,-3,4,-1,2,1,-5,4]', 6",
+//		"'[-2,1,-3,4,-1,2,1,-5,4]', 6",
 		"'[-2,-3,-1]', -1"
 	})
 	void test(
 			@ConvertWith(ToIntArrayArgumentConverter.class) int[] nums,
 			int expect
 			) {
-		assertEquals(expect, s53.maxSubArray(nums), "solution53 failed");
+		assertEquals(expect, s53.maxSubArray(nums), "solution53 failed: " + expect + " doesn't euqal " + s53.maxSubArray(nums));
 	}
 
 }

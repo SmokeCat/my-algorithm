@@ -12,6 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import com.smoke.util.ListsUtil;
 import com.smoke.util.converter.To2DIntegerArrayListArgumentConverter;
 import com.smoke.util.converter.ToIntArrayArgumentConverter;
 
@@ -33,7 +34,7 @@ class Solution40Test {
 	@ParameterizedTest
 	@CsvSource({
 		"'[10,1,2,7,6,1,5]', 8, '[[1, 7],[1, 2, 5],[2, 6],[1, 1, 6]]'",
-		"'[3,1,3,5,1,1]', 8, '[[1,1,1,5],[1,1,3,3],[3,5]]'",
+		"'[3,1,3,5,1,1]', 8, '[[1,1,1,5],[1,1,3,3],[3, 5]]'",
 		"'[1]', 0, '[]'",
 		"'[ ]', 1, '[]'"
 	})
@@ -43,7 +44,7 @@ class Solution40Test {
 			@ConvertWith(To2DIntegerArrayListArgumentConverter.class) List<List<Integer>> res
 			) {
 		List<List<Integer>> currRes = s40.combinationSum(candidates, target);
-		assertTrue(currRes.size() == res.size() && currRes.containsAll(res) && res.containsAll(currRes), "solution40 failed");
+		assertTrue(ListsUtil.listEqual(currRes, res), "solution40 failed： " + currRes.toString() + " doesn't equal " + res.toString());
 	}
 
 }
