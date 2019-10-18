@@ -9,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import com.smoke.util.ListsUtil;
 import com.smoke.util.converter.To2DIntegerArrayListArgumentConverter;
 import com.smoke.util.converter.ToIntArrayArgumentConverter;
 
@@ -34,7 +35,7 @@ class Solution39Test {
 			@ConvertWith(To2DIntegerArrayListArgumentConverter.class) List<List<Integer>> res
 			) {
 		List<List<Integer>> currRes = s39.combinationSum(candidates, target);
-		assertTrue(currRes.size() == res.size() && currRes.containsAll(res) && res.containsAll(currRes), "solution39 failed");
+		assertTrue(ListsUtil.listEqual(currRes, res), "solution39 failed： " + currRes.toString() + " doesn't equal " + res.toString());
 	}
 
 }
