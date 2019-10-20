@@ -26,7 +26,7 @@ https://leetcode-cn.com/problems/pascals-triangle/
 
 ### 解决思路：
 
-解决思路
+每一行除第一个和最后一个元素，中间的第i个元素的值是上一行的第i-1和第i个元素之和。
 
 ### 代码
 
