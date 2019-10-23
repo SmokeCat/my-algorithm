@@ -14,9 +14,9 @@ import com.smoke.util.node.BinaryTreeNode;
  * @author Smoke
  *
  */
-public class BinaryTree {
+public class BinaryTrees {
 	
-	private BinaryTree() {}
+	private BinaryTrees() {}
 
 	/**
 	 * 递归前序遍历

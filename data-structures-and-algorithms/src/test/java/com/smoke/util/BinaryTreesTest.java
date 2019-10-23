@@ -17,7 +17,7 @@ import com.smoke.util.node.BinaryTreeNode;
  * @author Smoke
  *
  */
-class BinaryTreeTest {
+class BinaryTreesTest {
 	
 	private static BinaryTreeNode<Integer> emptyTree;
 	
@@ -93,7 +93,7 @@ class BinaryTreeTest {
 	}
 	
 	/**
-	 * Test method for {@link com.smoke.util.BinaryTree#preOrder(com.smoke.util.node.BinaryTreeNode)}.
+	 * Test method for {@link com.smoke.util.BinaryTrees#preOrder(com.smoke.util.node.BinaryTreeNode)}.
 	 */
 	@Test
 	void testPreOrder() {
@@ -101,40 +101,40 @@ class BinaryTreeTest {
 //		other.add(3);
 //		other.add(2);
 //		other.add(1);
-		assertTrue(BinaryTree.preOrder(emptyTree).equals(new ArrayList<>()), "pre-order emptyTree failed");
-		assertTrue(BinaryTree.preOrder(null).equals(new ArrayList<>()), "pre-order null failed");
-		assertTrue(BinaryTree.preOrder(fullTree).equals(new ArrayList<>(Arrays.asList(1,2,4,5,3,6,7))), "pre-order fullTree failed");
-		assertTrue(BinaryTree.preOrder(leftTree).equals(new ArrayList<>(Arrays.asList(1,2,3))), "pre-order leftTree failed");
-		assertTrue(BinaryTree.preOrder(rightTree).equals(new ArrayList<>(Arrays.asList(1,2,3))), "pre-order rightTree failed");
-		assertTrue(BinaryTree.preOrder(rootTree).equals(new ArrayList<>(Arrays.asList(1))), "pre-order rootTree failed");
+		assertTrue(BinaryTrees.preOrder(emptyTree).equals(new ArrayList<>()), "pre-order emptyTree failed");
+		assertTrue(BinaryTrees.preOrder(null).equals(new ArrayList<>()), "pre-order null failed");
+		assertTrue(BinaryTrees.preOrder(fullTree).equals(new ArrayList<>(Arrays.asList(1,2,4,5,3,6,7))), "pre-order fullTree failed");
+		assertTrue(BinaryTrees.preOrder(leftTree).equals(new ArrayList<>(Arrays.asList(1,2,3))), "pre-order leftTree failed");
+		assertTrue(BinaryTrees.preOrder(rightTree).equals(new ArrayList<>(Arrays.asList(1,2,3))), "pre-order rightTree failed");
+		assertTrue(BinaryTrees.preOrder(rootTree).equals(new ArrayList<>(Arrays.asList(1))), "pre-order rootTree failed");
 	}
 
 	/**
-	 * Test method for {@link com.smoke.util.BinaryTree#inOrder(com.smoke.util.node.BinaryTreeNode)}.
+	 * Test method for {@link com.smoke.util.BinaryTrees#inOrder(com.smoke.util.node.BinaryTreeNode)}.
 	 */
 	@Test
 	void testInOrder() {
-		assertTrue(BinaryTree.inOrder(emptyTree).equals(new ArrayList<>()), "pre-order emptyTree failed");
-		assertTrue(BinaryTree.inOrder(null).equals(new ArrayList<>()), "pre-order null failed");
-		assertTrue(BinaryTree.inOrder(fullTree).equals(new ArrayList<>(Arrays.asList(4,2,5,1,6,3,7))), "in-order fullTree failed");
-		assertTrue(BinaryTree.inOrder(leftTree).equals(new ArrayList<>(Arrays.asList(3,2,1))), "in-order leftTree failed");
-		assertTrue(BinaryTree.inOrder(rightTree).equals(new ArrayList<>(Arrays.asList(1,2,3))), "in-order rightTree failed");
-		assertTrue(BinaryTree.inOrder(rootTree).equals(new ArrayList<>(Arrays.asList(1))), "in-order rootTree failed");
+		assertTrue(BinaryTrees.inOrder(emptyTree).equals(new ArrayList<>()), "pre-order emptyTree failed");
+		assertTrue(BinaryTrees.inOrder(null).equals(new ArrayList<>()), "pre-order null failed");
+		assertTrue(BinaryTrees.inOrder(fullTree).equals(new ArrayList<>(Arrays.asList(4,2,5,1,6,3,7))), "in-order fullTree failed");
+		assertTrue(BinaryTrees.inOrder(leftTree).equals(new ArrayList<>(Arrays.asList(3,2,1))), "in-order leftTree failed");
+		assertTrue(BinaryTrees.inOrder(rightTree).equals(new ArrayList<>(Arrays.asList(1,2,3))), "in-order rightTree failed");
+		assertTrue(BinaryTrees.inOrder(rootTree).equals(new ArrayList<>(Arrays.asList(1))), "in-order rootTree failed");
 //		fail("Not yet implemented");
 	}
 
 	/**
-	 * Test method for {@link com.smoke.util.BinaryTree#postOrder(com.smoke.util.node.BinaryTreeNode)}.
+	 * Test method for {@link com.smoke.util.BinaryTrees#postOrder(com.smoke.util.node.BinaryTreeNode)}.
 	 */
 	@Test
 	void testPostOrder() {
-		System.out.println(BinaryTree.postOrder(fullTree));
-		assertTrue(BinaryTree.postOrder(emptyTree).equals(new ArrayList<>()), "pre-order emptyTree failed");
-		assertTrue(BinaryTree.postOrder(null).equals(new ArrayList<>()), "pre-order null failed");
-		assertTrue(BinaryTree.postOrder(fullTree).equals(new ArrayList<>(Arrays.asList(4,5,2,6,7,3,1))), "post-order fullTree failed");
-		assertTrue(BinaryTree.postOrder(leftTree).equals(new ArrayList<>(Arrays.asList(3,2,1))), "post-order leftTree failed");
-		assertTrue(BinaryTree.postOrder(rightTree).equals(new ArrayList<>(Arrays.asList(3,2,1))), "post-order rightTree failed");
-		assertTrue(BinaryTree.postOrder(rootTree).equals(new ArrayList<>(Arrays.asList(1))), "post-order rootTree failed");
+		System.out.println(BinaryTrees.postOrder(fullTree));
+		assertTrue(BinaryTrees.postOrder(emptyTree).equals(new ArrayList<>()), "pre-order emptyTree failed");
+		assertTrue(BinaryTrees.postOrder(null).equals(new ArrayList<>()), "pre-order null failed");
+		assertTrue(BinaryTrees.postOrder(fullTree).equals(new ArrayList<>(Arrays.asList(4,5,2,6,7,3,1))), "post-order fullTree failed");
+		assertTrue(BinaryTrees.postOrder(leftTree).equals(new ArrayList<>(Arrays.asList(3,2,1))), "post-order leftTree failed");
+		assertTrue(BinaryTrees.postOrder(rightTree).equals(new ArrayList<>(Arrays.asList(3,2,1))), "post-order rightTree failed");
+		assertTrue(BinaryTrees.postOrder(rootTree).equals(new ArrayList<>(Arrays.asList(1))), "post-order rootTree failed");
 //		fail("Not yet implemented");
 	}
 
