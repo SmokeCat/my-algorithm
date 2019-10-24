@@ -24,7 +24,7 @@ public class Solution24 {
     }
     
     /**
-     * 测试Solution24
+     * 	测试Solution24
      * 
      * @param args
      */
