@@ -25,15 +25,40 @@ https://leetcode-cn.com/problems/merge-intervals/
 
 根据区间的开始索引排序区间集合，然后遍历判断重叠区间。
 
+重点在于如何排序。
+
 ### 代码
 
 java代码:
 ~~~ java
-Java代码
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        List<int[]> res = new ArrayList<>();
+        
+        if(intervals.length < 1) return res.toArray(new int[0][]);
+        
+        // 按照区间start排序
+        Arrays.sort(intervals, (a,b) -> a[0] - b[0]);
+        
+        int start = intervals[0][0], end = intervals[0][1];
+        for(int i = 0; i < intervals.length; i++){
+        	if(intervals[i][0] > end){
+        		res.add(new int[]{start, end});
+        		start = intervals[i][0];
+        		end = intervals[i][1];
+        	}else{
+            	end = Math.max(intervals[i][1], end);
+        	}
+        }
+        res.add(new int[]{start, end});
+        
+        return res.toArray(new int[0][]);
+    }
+}
 ~~~
 
 ### 复杂度分析：
 
-时间复杂度：$O(n^2)$
+时间复杂度：$O(n\log n)$
 
 空间复杂度：$O(1)$
