@@ -7,13 +7,12 @@ public class Solution240 {
     	int n = matrix[0].length;
     	if(n == 0) return false;
     	
-    	for(int y = n - 1; y >= 0; y--){
-    		int x = 0;
+    	int x = 0, y = n - 1;
+    	while(y >= 0 && x < m){
     		
-    		for(; x < m; x++){
-    			if(matrix[x][y] == target) return true;
-    			else if(matrix[x][y] > target) break;
-    		}
+			if(matrix[x][y] == target) return true;
+			else if(matrix[x][y] > target) --y;
+			else ++x;
     	}
     	
     	return false;
