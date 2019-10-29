@@ -28,6 +28,11 @@ public class Solution56 {
         return res.toArray(new int[0][]);
     }
     
+    /**
+     * 测试Solution 56
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
 		System.out.println("Test Solution 56:");
 		
