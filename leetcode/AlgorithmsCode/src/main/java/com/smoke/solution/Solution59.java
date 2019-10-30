@@ -44,7 +44,7 @@ public class Solution59 {
      * @param args
      */
     public static void main(String[] args) {
-		System.out.println("Test Solution 594:");
+		System.out.println("Test Solution 59:");
 		
 		Solution59 s59 = new Solution59();
 		
