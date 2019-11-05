@@ -4,44 +4,34 @@ public class Solution81 {
     public boolean search(int[] nums, int target) {
         int len = nums.length;
         
-        if(len < 1) return false;
+        if(nums == null || len == 0) return false;
         
-        return rotatedSearch(nums, 0, len - 1, target);
-    }
-    
-    private boolean binSearch(int[] nums, int start, int end, int target){
-        if(end < start) return false;
-        int mid = start + ((end - start) >> 1);
-        if(nums[start] == nums[mid] && nums[mid] == nums[end])  return nums[start] == target ? true : false;
+        int lo = 0, hi = len - 1;
         
-        if(nums[mid] == target){
-            return true;
-        }else if(target < mid){
-            return binSearch(nums, start, mid-1, target);
-        }else{
-            return binSearch(nums, mid+1, end, target);
+        while(lo <= hi){
+        	int mid = lo + ((hi - lo) >> 1);
+        	
+        	if(nums[mid] == target) return true;
+        	
+        	if(nums[lo] == nums[mid]){
+        		++lo;
+        		continue;
+        	}
+        	
+        	if(nums[0] < nums[mid]){
+        		if(target >= nums[lo] && target < nums[mid]){
+        			hi = mid - 1;
+        		}else{
+        			lo = mid + 1;
+        		}
+        	}else{
+        		if(target > nums[mid] && target <= nums[hi]){
+        			lo = mid + 1;
+        		}else{
+        			hi = mid - 1;
+        		}
+        	}
         }
-    }
-    
-    private boolean rotatedSearch(int[] nums, int start, int end, int target){
-        if(end < start) return false;
-        int mid = start + (end - start) >> 1;
-        if(nums[start] == nums[mid] && nums[mid] == nums[end])  return nums[start] == target ? true : false;
-        
-        if(nums[mid] == target){
-            return true;
-        } else if(nums[start] < nums[mid]){
-            if(target >= nums[start] && target < nums[mid]){
-                return binSearch(nums, start, mid-1, target);
-            }else{
-                return rotatedSearch(nums, mid+1, end, target);
-            }
-        } else{
-            if(target > nums[mid] && target <= nums[end]){
-                return binSearch(nums, mid+1, end, target);
-            }else{
-                return rotatedSearch(nums, start, mid-1, target);
-            }
-        }
+        return false;
     }
 }
