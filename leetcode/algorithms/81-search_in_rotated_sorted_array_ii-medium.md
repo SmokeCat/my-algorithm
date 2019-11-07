@@ -33,6 +33,8 @@ https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
 
 分情况，一边是排序区间，可以直接使用二分查找，另 一边则是旋转数组区间。
 
+每次二分查找前，当nums[lo] == nums[mid]时，可以先去除第一个重复的数，可以避免[1, 1, 1, 1, 1, 0, 1]这样的数组出现问题。
+
 ### 代码
 
 java代码:
