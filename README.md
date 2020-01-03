@@ -1,7 +1,7 @@
 # algorithm-practice
 
 
-algorithm execises
+algorithm exercises
 
 ## bitsort
 
