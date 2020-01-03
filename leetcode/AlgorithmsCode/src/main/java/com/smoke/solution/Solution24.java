@@ -22,28 +22,4 @@ public class Solution24 {
         
         return listHead.next;
     }
-    
-    /**
-     * 	测试Solution24
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-		System.out.println("Test Solution 24:");
-		
-		Solution24 s24 = new Solution24();
-		
-		int[] a = new int[]{1,2,3,4};
-		LinkedList list = new LinkedList(a);
-		
-		ListNode head = list.getHead();
-		
-		System.out.println("Before handle: ");
-		System.out.println(list.toString());
-		
-		list.setFirst(s24.swapPairs(head.next));;
-		
-		System.out.println("After handle: ");
-		System.out.println(list.toString());
-	}
 }
